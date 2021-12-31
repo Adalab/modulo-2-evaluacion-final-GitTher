@@ -1,15 +1,3 @@
-'use strict';
-
-/* global variables */
-
-
-const submitBtn = document.querySelector('.js-submit');
-const resetBtn = document.querySelector('.js-reset');
-const favList = document.querySelector('.js-favourites');
-const resultList = document.querySelector('.js-results');
-
-console.log('>> Ready :)');
-
 function getAnime(event) {
     event.preventDefault()
     const animeInput = document.querySelector('.js-input').value;
@@ -26,4 +14,3 @@ function getAnime(event) {
 }
 
 submitBtn.addEventListener('click', getAnime);
-//# sourceMappingURL=main.js.map
