@@ -14,8 +14,23 @@ function getAnime(event) {
         .then((response) => response.json())
         .then((animeData) => {
             for (let eachAnime of animeData.results) {
-                resultList.innerHTML +=
-                    ` 
+                console.log(eachAnime);
+                if (eachAnime.image_url === 'https://cdn.myanimelist.net/images/qm_50.gif?s=e1ff92a46db617cb83bfc1e205aff620') {
+                    resultList.innerHTML +=
+                        ` 
+<article class="results__card">
+  <img
+    src="https://via.placeholder.com/210x295/000000/ffffff/?text=${eachAnime.title}"
+    class="results__card--img"
+    alt="${eachAnime.title}"
+  />
+  <h3 class="results__card--title">${eachAnime.title}</h3>
+</article>
+`;
+
+                } else {
+                    resultList.innerHTML +=
+                        ` 
                 <article class="results__card">
                   <img
                     src="${eachAnime.image_url}"
@@ -25,8 +40,7 @@ function getAnime(event) {
                   <h3 class="results__card--title">${eachAnime.title}</h3>
                 </article>
               `;
-                console.log(eachAnime.title);
-                console.log(eachAnime.image_url);
+                }
             }
         });
 }
