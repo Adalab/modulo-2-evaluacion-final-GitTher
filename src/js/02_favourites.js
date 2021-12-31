@@ -10,12 +10,45 @@ function addFavourite(event) {
 
         const newFavourite = {
             title: animeInfo.alt,
-            image: animeInfo.src,
+            image_url: animeInfo.src,
         }
         favElements.push(newFavourite);
         console.log(favElements);
         event.currentTarget.classList.add('favourite');
     }
+    renderFavList(favElements);
 }
 
+function renderFavList(favElements) {
+    favList.innerHTML = `<h2 class="favourites__title">Favoritos:</h2>`;
+    for (let i = 0; i < favElements.length; i++) {
+        if (favElements[i].image_url === 'https://cdn.myanimelist.net/images/qm_50.gif?s=e1ff92a46db617cb83bfc1e205aff620') {
+            favList.innerHTML +=
+                ` 
+                <article class="favourites__card js-card">
+                <img
+                    src="https://via.placeholder.com/210x295/000000/ffffff/?text=${favElements[i].title}"
+                    class="favourites__card--img"
+                    alt="${favElements[i].title}"
+                />
+                <h3 class="favourites__card--title">${favElements[i].title}</h3>
+                </article>
+                `
+                ;
 
+        } else {
+            favList.innerHTML +=
+                ` 
+                <article class="favourites__card js-card">
+                <img
+                    src="${favElements[i].image_url}"
+                    class="favourites__card--img"
+                    alt="${favElements[i].title}"
+                />
+                <h3 class="favourites__card--title">${favElements[i].title}</h3>
+                </article>
+                `
+                ;
+        }
+    }
+}

@@ -1,6 +1,5 @@
 function getAnime(event) {
     event.preventDefault()
-    resultList.innerHTML = `<h2 class="results__title">Resultados:</h2>`;
     const animeInput = document.querySelector('.js-input').value;
     fetch(`https://api.jikan.moe/v3/search/anime?q=${animeInput}`)
         .then(response => response.json())
@@ -12,6 +11,7 @@ function getAnime(event) {
 }
 
 function renderResultList(resultElements) {
+    resultList.innerHTML = `<h2 class="results__title">Resultados:</h2>`;
     for (let i = 0; i < resultElements.length; i++) {
         if (resultElements[i].image_url === 'https://cdn.myanimelist.net/images/qm_50.gif?s=e1ff92a46db617cb83bfc1e205aff620') {
             resultList.innerHTML +=
