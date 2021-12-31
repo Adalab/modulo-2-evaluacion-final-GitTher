@@ -4,7 +4,6 @@ function addFavourite(event) {
     if (event.currentTarget.classList.contains('favourite')) {
         let index = favElements.findIndex(i => i.title === animeInfo.alt);
         favElements.splice(index, 1);
-        console.log(favElements);
         event.currentTarget.classList.remove('favourite');
     } else {
 
@@ -13,7 +12,6 @@ function addFavourite(event) {
             image_url: animeInfo.src,
         }
         favElements.push(newFavourite);
-        console.log(favElements);
         event.currentTarget.classList.add('favourite');
     }
     renderFavList(favElements);
@@ -56,7 +54,7 @@ function renderFavList(favElements) {
         }
 
     }
-
+    localStorage.setItem("favs", JSON.stringify(favElements));
 }
 
 function removeFavourite(event) {
@@ -66,3 +64,6 @@ function removeFavourite(event) {
     event.currentTarget.classList.remove('favourite');
     renderFavList(favElements);
 }
+
+favElements = JSON.parse(localStorage.getItem("favs"));
+window.onload = renderFavList(favElements);

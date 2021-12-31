@@ -7,3 +7,4 @@ const resultList = document.querySelector('.js-results');
 
 let resultElements = [];
 let favElements = [];
+
