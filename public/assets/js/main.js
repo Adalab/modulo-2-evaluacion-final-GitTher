@@ -57,41 +57,6 @@ function renderResultList(resultElements) {
         }
 
     }
-    // for (let eachAnime of resultElements) {
-    //     if (eachAnime.image_url === 'https://cdn.myanimelist.net/images/qm_50.gif?s=e1ff92a46db617cb83bfc1e205aff620') {
-    //         resultList.innerHTML +=
-    //             ` 
-    //             <article class="results__card js-card">
-    //             <img
-    //                 src="https://via.placeholder.com/210x295/000000/ffffff/?text=${eachAnime.title}"
-    //                 class="results__card--img"
-    //                 alt="${eachAnime.title}"
-    //             />
-    //             <h3 class="results__card--title">${eachAnime.title}</h3>
-    //             </article>
-    //             `
-    //             ;
-
-    //     } else {
-    //         resultList.innerHTML +=
-    //             ` 
-    //             <article class="results__card js-card">
-    //             <img
-    //                 src="${eachAnime.image_url}"
-    //                 class="results__card--img"
-    //                 alt="${eachAnime.title}"
-    //             />
-    //             <h3 class="results__card--title">${eachAnime.title}</h3>
-    //             </article>
-    //             `
-    //             ;
-    //     }
-    //     const animeCard = document.querySelectorAll('.js-card');
-    //     for (const eachCard of animeCard) {
-    //         eachCard.addEventListener('click', addFavourite);
-    //     }
-
-    // }
 }
 submitBtn.addEventListener('click', getAnime); 
 
@@ -121,7 +86,7 @@ function renderFavList(favElements) {
         if (favElements[i].image_url === 'https://cdn.myanimelist.net/images/qm_50.gif?s=e1ff92a46db617cb83bfc1e205aff620') {
             favList.innerHTML +=
                 ` 
-                <article class="favourites__card js-card">
+                <article class="favourites__card js-fav favourite">
                 <img
                     src="https://via.placeholder.com/210x295/000000/ffffff/?text=${favElements[i].title}"
                     class="favourites__card--img"
@@ -135,7 +100,7 @@ function renderFavList(favElements) {
         } else {
             favList.innerHTML +=
                 ` 
-                <article class="favourites__card js-card">
+                <article class="favourites__card js-fav favourite">
                 <img
                     src="${favElements[i].image_url}"
                     class="favourites__card--img"
@@ -146,7 +111,21 @@ function renderFavList(favElements) {
                 `
                 ;
         }
+        const favCard = document.querySelectorAll('.js-fav');
+        for (const eachFav of favCard) {
+            eachFav.addEventListener('click', removeFavourite);
+        }
+
     }
+
+}
+
+function removeFavourite(event) {
+    const favInfo = event.currentTarget.querySelector('.favourites__card--img');
+    let index = favElements.findIndex(i => i.title === favInfo.alt);
+    favElements.splice(index, 1);
+    event.currentTarget.classList.remove('favourite');
+    renderFavList(favElements);
 }
 
 //# sourceMappingURL=main.js.map
