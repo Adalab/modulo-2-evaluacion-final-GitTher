@@ -33,7 +33,7 @@ function renderResultList(resultElements) {
                     class="results__card--img"
                     alt="${resultElements[i].title}"
                 />
-                <h3 class="results__card--title">${resultElements[i].title}</h3>
+                <h3 class="results__card--title js-cardTitle">${resultElements[i].title}</h3>
                 </article>
                 `
                 ;
@@ -47,7 +47,7 @@ function renderResultList(resultElements) {
                     class="results__card--img"
                     alt="${resultElements[i].title}"
                 />
-                <h3 class="results__card--title">${resultElements[i].title}</h3>
+                <h3 class="results__card--title js-cardTitle">${resultElements[i].title}</h3>
                 </article>
                 `
                 ;
@@ -56,6 +56,7 @@ function renderResultList(resultElements) {
         for (const eachCard of animeCard) {
             eachCard.addEventListener('click', addFavourite);
         }
+        compareLists();
 
     }
 }
@@ -123,11 +124,24 @@ function renderFavList(favElements) {
 
 function removeFavourite(event) {
     const favCard = event.currentTarget.parentElement;
-    const favInfo = favCard.querySelector('.favourites__card--img');
-    let index = favElements.findIndex(i => i.title === favInfo.alt);
+    const favInfo = favCard.querySelector('.favourites__card--img').alt;
+    let index = favElements.findIndex(i => i.title === favInfo);
     favElements.splice(index, 1);
     event.currentTarget.classList.remove('favourite');
     renderFavList(favElements);
+    compareLists();
+}
+
+function compareLists() {
+    const resultTitles = document.querySelectorAll('.js-cardTitle');
+    for (const eachTitle of resultTitles) {
+        if (favElements.some(i => i.title === eachTitle.innerHTML)) {
+            eachTitle.parentElement.classList.add('favourite');
+        } else {
+            eachTitle.parentElement.classList.remove('favourite');
+        }
+    }
+
 }
 
 favElements = JSON.parse(localStorage.getItem("favs"));

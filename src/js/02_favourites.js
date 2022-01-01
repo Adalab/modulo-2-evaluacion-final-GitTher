@@ -61,11 +61,24 @@ function renderFavList(favElements) {
 
 function removeFavourite(event) {
     const favCard = event.currentTarget.parentElement;
-    const favInfo = favCard.querySelector('.favourites__card--img');
-    let index = favElements.findIndex(i => i.title === favInfo.alt);
+    const favInfo = favCard.querySelector('.favourites__card--img').alt;
+    let index = favElements.findIndex(i => i.title === favInfo);
     favElements.splice(index, 1);
     event.currentTarget.classList.remove('favourite');
     renderFavList(favElements);
+    compareLists();
+}
+
+function compareLists() {
+    const resultTitles = document.querySelectorAll('.js-cardTitle');
+    for (const eachTitle of resultTitles) {
+        if (favElements.some(i => i.title === eachTitle.innerHTML)) {
+            eachTitle.parentElement.classList.add('favourite');
+        } else {
+            eachTitle.parentElement.classList.remove('favourite');
+        }
+    }
+
 }
 
 favElements = JSON.parse(localStorage.getItem("favs"));

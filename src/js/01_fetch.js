@@ -22,7 +22,7 @@ function renderResultList(resultElements) {
                     class="results__card--img"
                     alt="${resultElements[i].title}"
                 />
-                <h3 class="results__card--title">${resultElements[i].title}</h3>
+                <h3 class="results__card--title js-cardTitle">${resultElements[i].title}</h3>
                 </article>
                 `
                 ;
@@ -36,7 +36,7 @@ function renderResultList(resultElements) {
                     class="results__card--img"
                     alt="${resultElements[i].title}"
                 />
-                <h3 class="results__card--title">${resultElements[i].title}</h3>
+                <h3 class="results__card--title js-cardTitle">${resultElements[i].title}</h3>
                 </article>
                 `
                 ;
@@ -45,6 +45,7 @@ function renderResultList(resultElements) {
         for (const eachCard of animeCard) {
             eachCard.addEventListener('click', addFavourite);
         }
+        compareLists();
 
     }
 }
