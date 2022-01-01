@@ -24,6 +24,7 @@ function renderFavList(favElements) {
             favList.innerHTML +=
                 ` 
                 <article class="favourites__card js-fav favourite">
+                <i class="fas fa-times favourites__card--icon js-remove"></i>
                 <img
                     src="https://via.placeholder.com/210x295/000000/ffffff/?text=${favElements[i].title}"
                     class="favourites__card--img"
@@ -38,6 +39,7 @@ function renderFavList(favElements) {
             favList.innerHTML +=
                 ` 
                 <article class="favourites__card js-fav favourite">
+                <i class="fas fa-times favourites__card--icon js-remove"></i>
                 <img
                     src="${favElements[i].image_url}"
                     class="favourites__card--img"
@@ -48,9 +50,9 @@ function renderFavList(favElements) {
                 `
                 ;
         }
-        const favCard = document.querySelectorAll('.js-fav');
-        for (const eachFav of favCard) {
-            eachFav.addEventListener('click', removeFavourite);
+        const removeBtn = document.querySelectorAll('.js-remove');
+        for (const eachBtn of removeBtn) {
+            eachBtn.addEventListener('click', removeFavourite);
         }
 
     }
@@ -58,7 +60,8 @@ function renderFavList(favElements) {
 }
 
 function removeFavourite(event) {
-    const favInfo = event.currentTarget.querySelector('.favourites__card--img');
+    const favCard = event.currentTarget.parentElement;
+    const favInfo = favCard.querySelector('.favourites__card--img');
     let index = favElements.findIndex(i => i.title === favInfo.alt);
     favElements.splice(index, 1);
     event.currentTarget.classList.remove('favourite');
