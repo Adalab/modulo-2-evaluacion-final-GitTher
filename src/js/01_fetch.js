@@ -51,14 +51,18 @@ function renderResultList(resultElements) {
             const resultCardImg = document.createElement('img');
             const resultCardTitle = document.createElement('h3');
             const resultCardTitleContent = document.createTextNode(resultElements[i].title);
+
             resultCard.appendChild(resultCardImg);
             resultCard.appendChild(resultCardTitle);
-            resultCardTitle.appendChild(resultCardTitleContent);
+            resultCard.classList.add('results__card', 'js-card');
+
             resultCardImg.src = resultElements[i].image_url;
             resultCardImg.alt = resultElements[i].title;
             resultCardImg.classList.add('results__card--img');
+
+            resultCardTitle.appendChild(resultCardTitleContent);
             resultCardTitle.classList.add('results__card--title', 'js-cardTitle');
-            resultCard.classList.add('results__card', 'js-card');
+
             resultList.appendChild(resultCard);
 
             // resultList.innerHTML +=
