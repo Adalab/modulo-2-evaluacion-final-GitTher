@@ -7,11 +7,10 @@ function getAnime(event) {
             resultElements = animeData.results;
             renderResultList(resultElements);
         });
-
 }
 
 function renderResultList(resultElements) {
-    resultList.innerHTML = `<h2 class="results__title">Resultados:</h2>`;
+    resultList.innerHTML = '';
     for (let i = 0; i < resultElements.length; i++) {
         if (resultElements[i].image_url === 'https://cdn.myanimelist.net/images/qm_50.gif?s=e1ff92a46db617cb83bfc1e205aff620') {
             const resultCard = document.createElement('li');
@@ -32,20 +31,6 @@ function renderResultList(resultElements) {
 
             resultList.appendChild(resultCard);
 
-
-            // resultList.innerHTML +=
-            //     ` 
-            //     <article class="results__card js-card">
-            //     <img
-            //         src="https://via.placeholder.com/210x295/000000/ffffff/?text=${resultElements[i].title}"
-            //         class="results__card--img"
-            //         alt="${resultElements[i].title}"
-            //     />
-            //     <h3 class="results__card--title js-cardTitle">${resultElements[i].title}</h3>
-            //     </article>
-            //     `
-            //     ;
-
         } else {
             const resultCard = document.createElement('li');
             const resultCardImg = document.createElement('img');
@@ -65,18 +50,6 @@ function renderResultList(resultElements) {
 
             resultList.appendChild(resultCard);
 
-            // resultList.innerHTML +=
-            // ` 
-            // <article class="results__card js-card">
-            // <img
-            //     src="${resultElements[i].image_url}"
-            //     class="results__card--img"
-            //     alt="${resultElements[i].title}"
-            // />
-            // <h3 class="results__card--title js-cardTitle">${resultElements[i].title}</h3>
-            // </article>
-            // `
-            // ;
         }
         const animeCard = document.querySelectorAll('.js-card');
         for (const eachCard of animeCard) {
