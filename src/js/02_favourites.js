@@ -81,7 +81,8 @@ function compareLists() {
 
 }
 
-function resetFavs() {
+function resetFavs(event) {
+    event.preventDefault()
     favElements = [];
     renderFavList(favElements);
 }
