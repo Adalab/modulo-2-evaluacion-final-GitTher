@@ -144,6 +144,13 @@ function compareLists() {
 
 }
 
+function resetFavs() {
+    favElements = [];
+    renderFavList(favElements);
+}
+
+resetBtn.addEventListener('click', resetFavs);
+
 favElements = JSON.parse(localStorage.getItem("favs"));
 window.onload = renderFavList(favElements);
 
