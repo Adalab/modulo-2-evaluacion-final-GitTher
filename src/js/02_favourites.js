@@ -30,11 +30,11 @@ function renderFavList(favElements) {
             favCard.appendChild(favCardIcon);
             favCard.appendChild(favCardImg);
             favCard.appendChild(favCardTitle);
-            favCard.classList.add('favourites__card', 'js-fav', 'favourite');
+            favCard.classList.add('favourites__card', 'js-fav');
 
             favCardIcon.classList.add('fas', 'fa-times', 'favourites__card--icon', 'js-remove');
 
-            favCardImg.src = `https://via.placeholder.com/210x295/000000/ffffff/?text=${favElements[i].title}`;
+            favCardImg.src = `https://via.placeholder.com/210x295/bbe1fa/0f4c75/?text=${favElements[i].title}`;
             favCardImg.alt = favElements[i].title;
             favCardImg.classList.add('favourites__card--img');
 
@@ -53,7 +53,7 @@ function renderFavList(favElements) {
             favCard.appendChild(favCardIcon);
             favCard.appendChild(favCardImg);
             favCard.appendChild(favCardTitle);
-            favCard.classList.add('favourites__card', 'js-fav', 'favourite');
+            favCard.classList.add('favourites__card', 'js-fav');
 
             favCardIcon.classList.add('fas', 'fa-times', 'favourites__card--icon', 'js-remove');
 

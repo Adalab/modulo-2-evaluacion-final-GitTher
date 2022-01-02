@@ -22,7 +22,7 @@ function renderResultList(resultElements) {
             resultCard.appendChild(resultCardTitle);
             resultCard.classList.add('results__card', 'js-card');
 
-            resultCardImg.src = `https://via.placeholder.com/210x295/000000/ffffff/?text=${resultElements[i].title}`;
+            resultCardImg.src = `https://via.placeholder.com/210x295/bbe1fa/0f4c75/?text=${resultElements[i].title}`;
             resultCardImg.alt = resultElements[i].title;
             resultCardImg.classList.add('results__card--img');
 
