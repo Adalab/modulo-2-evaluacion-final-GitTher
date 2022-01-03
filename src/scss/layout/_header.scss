@@ -21,39 +21,15 @@
     font-family: $mainFont;
   }
   &__submit {
-    border: 1px solid $primaryColor;
-    margin: 4px;
-    background-color: $accentColor;
-    line-height: 20px;
-    padding: 3px 8px;
-    font-size: 16px;
-    color: $primaryColor;
-    font-family: $mainFont;
-    cursor: pointer;
-    transition: all ease 0.2s;
+    @include formButton();
     &:hover {
-      background-color: $secondaryColor;
-      color: $accentColor;
-      transform: translateY(-2px);
-      box-shadow: 0 2px 4px 0 rgba($color: #000000, $alpha: 0.5);
+      @include formButtonHover();
     }
   }
   &__reset {
-    border: 1px solid $primaryColor;
-    margin: 4px;
-    background-color: $accentColor;
-    line-height: 20px;
-    padding: 3px 8px;
-    font-size: 16px;
-    color: $primaryColor;
-    font-family: $mainFont;
-    cursor: pointer;
-    transition: all ease 0.2s;
+    @include formButton();
     &:hover {
-      background-color: $secondaryColor;
-      color: $accentColor;
-      transform: translateY(-2px);
-      box-shadow: 0 2px 4px 0 rgba($color: #000000, $alpha: 0.5);
+      @include formButtonHover();
     }
   }
 }
