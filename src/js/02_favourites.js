@@ -6,7 +6,6 @@ function addFavourite(event) {
         favElements.splice(index, 1);
         event.currentTarget.classList.remove('favourite');
     } else {
-
         const newFavourite = {
             title: animeInfo.alt,
             image_url: animeInfo.src,
@@ -54,7 +53,6 @@ function renderFavList(favElements) {
         for (const eachBtn of removeBtn) {
             eachBtn.addEventListener('click', removeFavourite);
         }
-
     }
     localStorage.setItem("favs", JSON.stringify(favElements));
 }

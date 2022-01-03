@@ -145,9 +145,9 @@ table {
     width: 100%; }
     .main__results--title {
       font-size: 24px;
-      color: #bbe1fa;
       padding-bottom: 8px;
       font-family: "Red Hat Display", sans-serif;
+      color: #bbe1fa;
       align-self: flex-end; }
 
 .favourites {

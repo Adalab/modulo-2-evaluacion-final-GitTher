@@ -1,0 +1,6 @@
+@mixin listTitle() {
+  font-size: 24px;
+  padding-bottom: 8px;
+  font-family: $mainFont;
+  color: $accentColor;
+}

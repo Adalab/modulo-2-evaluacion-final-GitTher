@@ -13,10 +13,7 @@
     background-color: $primaryColor;
     padding: 16px;
     &--title {
-      font-size: 24px;
-      padding-bottom: 8px;
-      font-family: $mainFont;
-      color: $accentColor;
+      @include listTitle();
     }
   }
   &__results {
@@ -24,10 +21,7 @@
     padding: 16px;
     width: 100%;
     &--title {
-      font-size: 24px;
-      color: $accentColor;
-      padding-bottom: 8px;
-      font-family: $mainFont;
+      @include listTitle();
       align-self: flex-end;
     }
   }
