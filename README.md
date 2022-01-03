@@ -64,9 +64,7 @@ npm install npm@latest -g
 ## Tech Stack
 
 - HTML5
-- CSS3
-- Flexbox
-- SASS
+- SCSS
 - Javascript
 - [Jikan API](https://jikan.docs.apiary.io/#)
 
