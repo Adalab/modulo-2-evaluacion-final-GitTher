@@ -7,21 +7,32 @@ body {
 }
 
 .main {
+  width: 100vw;
   padding: 32px;
   display: flex;
+  flex-direction: column;
+
+  @include desktop {
+    flex-direction: row;
+  }
 
   &__favourites {
+    width: 75vw;
     margin-right: 32px;
+    margin-bottom: 32px;
     background-color: $primaryColor;
     padding: 16px;
     &--title {
       @include listTitle();
     }
+    @include tablet {
+      width: 352px;
+    }
   }
   &__results {
     background-color: $primaryColor;
     padding: 16px;
-    width: 100%;
+    width: 75vw;
     &--title {
       @include listTitle();
       align-self: flex-end;
@@ -30,7 +41,10 @@ body {
 }
 
 .favourites {
-  width: 320px;
+  @include tablet {
+    width: 320px;
+  }
+
   &__card {
     display: flex;
     align-items: center;
@@ -61,19 +75,23 @@ body {
 
 .results {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-wrap: wrap;
-  width: 100%;
+
+  @include desktop {
+    width: 100%;
+    justify-content: space-between;
+  }
   &__card {
     width: 216px;
     cursor: pointer;
     font-family: $mainFont;
     color: $secondaryColor;
     background-color: $backgroundColor;
-    margin: 8px 0px;
+    margin: 8px 8px;
     &--img {
       padding: 8px;
-      width: 200px;
+      width: 216px;
       height: 280px;
       object-fit: cover;
     }
