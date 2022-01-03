@@ -1,24 +1,37 @@
 .title {
-  font-size: 32px;
+  font-size: 24px;
   color: $accentColor;
   padding: 32px;
   font-family: $mainFont;
+  width: 256px;
+  @include tablet {
+    font-size: 32px;
+    width: 100%;
+  }
 }
 
 .search {
   display: flex;
   padding-left: 32px;
   align-items: center;
+  flex-wrap: wrap;
+  width: 256px;
+  @include tablet {
+    width: 100%;
+  }
 
   &__input {
-    width: 256px;
+    width: 232px;
     height: 24px;
     border: 1px solid $primaryColor;
-    margin: 4px 4px 4px 0px;
+    margin: 4px 8px 4px 0px;
     padding: 1px 8px;
     font-size: 16px;
     color: $primaryColor;
     font-family: $mainFont;
+    @include tablet {
+      width: 256px;
+    }
   }
   &__submit {
     @include formButton();

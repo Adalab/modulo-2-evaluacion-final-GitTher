@@ -1,3 +1,14 @@
+@mixin tablet {
+  @media (min-width: 768px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 1280px) {
+    @content;
+  }
+}
+
 @mixin listTitle() {
   font-size: 24px;
   padding-bottom: 8px;
@@ -14,7 +25,7 @@
 
 @mixin formButton() {
   border: 1px solid $primaryColor;
-  margin: 4px;
+  margin: 4px 8px 4px 0px;
   background-color: $accentColor;
   line-height: 20px;
   padding: 3px 8px;
