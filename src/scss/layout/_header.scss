@@ -29,6 +29,11 @@
     font-size: 16px;
     color: $primaryColor;
     font-family: $mainFont;
+    cursor: pointer;
+    &:hover {
+      background-color: $primaryColor;
+      color: $accentColor;
+    }
   }
   &__reset {
     border: 1px solid $primaryColor;
@@ -39,5 +44,10 @@
     font-size: 16px;
     color: $primaryColor;
     font-family: $mainFont;
+    cursor: pointer;
+    &:hover {
+      background-color: $primaryColor;
+      color: $accentColor;
+    }
   }
 }

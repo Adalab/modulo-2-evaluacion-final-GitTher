@@ -124,7 +124,7 @@ table {
 
 .page {
   background-color: #0c3b5a;
-  height: 100vh; }
+  height: 100%; }
 
 .main {
   padding: 32px;
@@ -231,7 +231,11 @@ table {
     padding: 3px 8px;
     font-size: 16px;
     color: #0f4c75;
-    font-family: "Red Hat Display", sans-serif; }
+    font-family: "Red Hat Display", sans-serif;
+    cursor: pointer; }
+    .search__submit:hover {
+      background-color: #0f4c75;
+      color: #bbe1fa; }
   .search__reset {
     border: 1px solid #0f4c75;
     margin: 4px;
@@ -240,6 +244,10 @@ table {
     padding: 3px 8px;
     font-size: 16px;
     color: #0f4c75;
-    font-family: "Red Hat Display", sans-serif; }
+    font-family: "Red Hat Display", sans-serif;
+    cursor: pointer; }
+    .search__reset:hover {
+      background-color: #0f4c75;
+      color: #bbe1fa; }
 
 /*# sourceMappingURL=main.css.map */
