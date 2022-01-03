@@ -30,9 +30,12 @@
     color: $primaryColor;
     font-family: $mainFont;
     cursor: pointer;
+    transition: all ease 0.2s;
     &:hover {
-      background-color: $primaryColor;
+      background-color: $secondaryColor;
       color: $accentColor;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 4px 0 rgba($color: #000000, $alpha: 0.5);
     }
   }
   &__reset {
@@ -45,9 +48,12 @@
     color: $primaryColor;
     font-family: $mainFont;
     cursor: pointer;
+    transition: all ease 0.2s;
     &:hover {
-      background-color: $primaryColor;
+      background-color: $secondaryColor;
       color: $accentColor;
+      transform: translateY(-2px);
+      box-shadow: 0 2px 4px 0 rgba($color: #000000, $alpha: 0.5);
     }
   }
 }
