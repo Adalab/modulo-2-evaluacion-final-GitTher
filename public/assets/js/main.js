@@ -18,39 +18,49 @@ function getAnime(event) {
             resultElements = animeData.results;
             renderResultList(resultElements);
         });
-
 }
 
 function renderResultList(resultElements) {
-    resultList.innerHTML = `<h2 class="results__title">Resultados:</h2>`;
+    resultList.innerHTML = '';
     for (let i = 0; i < resultElements.length; i++) {
         if (resultElements[i].image_url === 'https://cdn.myanimelist.net/images/qm_50.gif?s=e1ff92a46db617cb83bfc1e205aff620') {
-            resultList.innerHTML +=
-                ` 
-                <article class="results__card js-card">
-                <img
-                    src="https://via.placeholder.com/210x295/000000/ffffff/?text=${resultElements[i].title}"
-                    class="results__card--img"
-                    alt="${resultElements[i].title}"
-                />
-                <h3 class="results__card--title js-cardTitle">${resultElements[i].title}</h3>
-                </article>
-                `
-                ;
+            const resultCard = document.createElement('li');
+            const resultCardImg = document.createElement('img');
+            const resultCardTitle = document.createElement('h3');
+            const resultCardTitleContent = document.createTextNode(resultElements[i].title);
+
+            resultCard.appendChild(resultCardImg);
+            resultCard.appendChild(resultCardTitle);
+            resultCard.classList.add('results__card', 'js-card');
+
+            resultCardImg.src = `https://via.placeholder.com/210x295/bbe1fa/0f4c75/?text=${resultElements[i].title}`;
+            resultCardImg.alt = resultElements[i].title;
+            resultCardImg.classList.add('results__card--img');
+
+            resultCardTitle.appendChild(resultCardTitleContent);
+            resultCardTitle.classList.add('results__card--title', 'js-cardTitle');
+
+            resultList.appendChild(resultCard);
 
         } else {
-            resultList.innerHTML +=
-                ` 
-                <article class="results__card js-card">
-                <img
-                    src="${resultElements[i].image_url}"
-                    class="results__card--img"
-                    alt="${resultElements[i].title}"
-                />
-                <h3 class="results__card--title js-cardTitle">${resultElements[i].title}</h3>
-                </article>
-                `
-                ;
+            const resultCard = document.createElement('li');
+            const resultCardImg = document.createElement('img');
+            const resultCardTitle = document.createElement('h3');
+            const resultCardTitleContent = document.createTextNode(resultElements[i].title);
+
+            resultCard.appendChild(resultCardImg);
+            resultCard.appendChild(resultCardTitle);
+            resultCard.classList.add('results__card', 'js-card');
+
+            resultCardImg.src = resultElements[i].image_url;
+            resultCardImg.alt = resultElements[i].title;
+            resultCardImg.classList.add('results__card--img');
+
+            resultCardTitle.appendChild(resultCardTitleContent);
+            resultCardTitle.classList.add('results__card--title', 'js-cardTitle');
+
+            resultList.appendChild(resultCard);
+
         }
         const animeCard = document.querySelectorAll('.js-card');
         for (const eachCard of animeCard) {
@@ -81,37 +91,54 @@ function addFavourite(event) {
 }
 
 function renderFavList(favElements) {
-    favList.innerHTML = `<h2 class="favourites__title">Favoritos:</h2>`;
+    favList.innerHTML = '';
     for (let i = 0; i < favElements.length; i++) {
         if (favElements[i].image_url === 'https://cdn.myanimelist.net/images/qm_50.gif?s=e1ff92a46db617cb83bfc1e205aff620') {
-            favList.innerHTML +=
-                ` 
-                <article class="favourites__card js-fav favourite">
-                <i class="fas fa-times favourites__card--icon js-remove"></i>
-                <img
-                    src="https://via.placeholder.com/210x295/000000/ffffff/?text=${favElements[i].title}"
-                    class="favourites__card--img"
-                    alt="${favElements[i].title}"
-                />
-                <h3 class="favourites__card--title">${favElements[i].title}</h3>
-                </article>
-                `
-                ;
+            const favCard = document.createElement('li');
+            const favCardIcon = document.createElement('i');
+            const favCardImg = document.createElement('img');
+            const favCardTitle = document.createElement('h3');
+            const favCardTitleContent = document.createTextNode(favElements[i].title);
+
+            favCard.appendChild(favCardIcon);
+            favCard.appendChild(favCardImg);
+            favCard.appendChild(favCardTitle);
+            favCard.classList.add('favourites__card', 'js-fav');
+
+            favCardIcon.classList.add('fas', 'fa-times', 'favourites__card--icon', 'js-remove');
+
+            favCardImg.src = `https://via.placeholder.com/210x295/bbe1fa/0f4c75/?text=${favElements[i].title}`;
+            favCardImg.alt = favElements[i].title;
+            favCardImg.classList.add('favourites__card--img');
+
+            favCardTitle.appendChild(favCardTitleContent);
+            favCardTitle.classList.add('favourites__card--title');
+
+            favList.appendChild(favCard);
 
         } else {
-            favList.innerHTML +=
-                ` 
-                <article class="favourites__card js-fav favourite">
-                <i class="fas fa-times favourites__card--icon js-remove"></i>
-                <img
-                    src="${favElements[i].image_url}"
-                    class="favourites__card--img"
-                    alt="${favElements[i].title}"
-                />
-                <h3 class="favourites__card--title">${favElements[i].title}</h3>
-                </article>
-                `
-                ;
+            const favCard = document.createElement('li');
+            const favCardIcon = document.createElement('i');
+            const favCardImg = document.createElement('img');
+            const favCardTitle = document.createElement('h3');
+            const favCardTitleContent = document.createTextNode(favElements[i].title);
+
+            favCard.appendChild(favCardIcon);
+            favCard.appendChild(favCardImg);
+            favCard.appendChild(favCardTitle);
+            favCard.classList.add('favourites__card', 'js-fav');
+
+            favCardIcon.classList.add('fas', 'fa-times', 'favourites__card--icon', 'js-remove');
+
+            favCardImg.src = favElements[i].image_url;
+            favCardImg.alt = favElements[i].title;
+            favCardImg.classList.add('favourites__card--img');
+
+            favCardTitle.appendChild(favCardTitleContent);
+            favCardTitle.classList.add('favourites__card--title');
+
+            favList.appendChild(favCard);
+
         }
         const removeBtn = document.querySelectorAll('.js-remove');
         for (const eachBtn of removeBtn) {
