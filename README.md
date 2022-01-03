@@ -40,9 +40,9 @@ To start this project you need to follow this steps:
 
 - npm
 
-```sh
-npm install npm@latest -g
-```
+  ```sh
+  npm install npm@latest -g
+  ```
 
 ### Installation
 
