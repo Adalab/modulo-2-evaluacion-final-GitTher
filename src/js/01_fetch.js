@@ -31,6 +31,24 @@ function renderResultList(resultElements) {
 
             resultList.appendChild(resultCard);
 
+        } else if (resultElements[i].image_url === '') {
+            const resultCard = document.createElement('li');
+            const resultCardImg = document.createElement('img');
+            const resultCardTitle = document.createElement('h3');
+            const resultCardTitleContent = document.createTextNode(resultElements[i].title);
+
+            resultCard.appendChild(resultCardImg);
+            resultCard.appendChild(resultCardTitle);
+            resultCard.classList.add('results__card', 'js-card');
+
+            resultCardImg.src = `https://via.placeholder.com/210x295/bbe1fa/0f4c75/?text=${resultElements[i].title}`;
+            resultCardImg.alt = resultElements[i].title;
+            resultCardImg.classList.add('results__card--img');
+
+            resultCardTitle.appendChild(resultCardTitleContent);
+            resultCardTitle.classList.add('results__card--title', 'js-cardTitle');
+
+            resultList.appendChild(resultCard);
         } else {
             const resultCard = document.createElement('li');
             const resultCardImg = document.createElement('img');

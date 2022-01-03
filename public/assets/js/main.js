@@ -42,6 +42,24 @@ function renderResultList(resultElements) {
 
             resultList.appendChild(resultCard);
 
+        } else if (resultElements[i].image_url === '') {
+            const resultCard = document.createElement('li');
+            const resultCardImg = document.createElement('img');
+            const resultCardTitle = document.createElement('h3');
+            const resultCardTitleContent = document.createTextNode(resultElements[i].title);
+
+            resultCard.appendChild(resultCardImg);
+            resultCard.appendChild(resultCardTitle);
+            resultCard.classList.add('results__card', 'js-card');
+
+            resultCardImg.src = `https://via.placeholder.com/210x295/bbe1fa/0f4c75/?text=${resultElements[i].title}`;
+            resultCardImg.alt = resultElements[i].title;
+            resultCardImg.classList.add('results__card--img');
+
+            resultCardTitle.appendChild(resultCardTitleContent);
+            resultCardTitle.classList.add('results__card--title', 'js-cardTitle');
+
+            resultList.appendChild(resultCard);
         } else {
             const resultCard = document.createElement('li');
             const resultCardImg = document.createElement('img');
@@ -92,54 +110,37 @@ function addFavourite(event) {
 
 function renderFavList(favElements) {
     favList.innerHTML = '';
+
     for (let i = 0; i < favElements.length; i++) {
+        const favCard = document.createElement('li');
+        const favCardIcon = document.createElement('i');
+        const favCardImg = document.createElement('img');
+        const favCardTitle = document.createElement('h3');
+        const favCardTitleContent = document.createTextNode(favElements[i].title);
+
+        favCard.appendChild(favCardIcon);
+        favCard.appendChild(favCardImg);
+        favCard.appendChild(favCardTitle);
+        favCard.classList.add('favourites__card', 'js-fav');
+
+        favCardIcon.classList.add('fas', 'fa-times', 'favourites__card--icon', 'js-remove');
+
+        favCardImg.alt = favElements[i].title;
+        favCardImg.classList.add('favourites__card--img');
+
+        favCardTitle.appendChild(favCardTitleContent);
+        favCardTitle.classList.add('favourites__card--title');
+
+        favList.appendChild(favCard);
+
         if (favElements[i].image_url === 'https://cdn.myanimelist.net/images/qm_50.gif?s=e1ff92a46db617cb83bfc1e205aff620') {
-            const favCard = document.createElement('li');
-            const favCardIcon = document.createElement('i');
-            const favCardImg = document.createElement('img');
-            const favCardTitle = document.createElement('h3');
-            const favCardTitleContent = document.createTextNode(favElements[i].title);
-
-            favCard.appendChild(favCardIcon);
-            favCard.appendChild(favCardImg);
-            favCard.appendChild(favCardTitle);
-            favCard.classList.add('favourites__card', 'js-fav');
-
-            favCardIcon.classList.add('fas', 'fa-times', 'favourites__card--icon', 'js-remove');
-
             favCardImg.src = `https://via.placeholder.com/210x295/bbe1fa/0f4c75/?text=${favElements[i].title}`;
-            favCardImg.alt = favElements[i].title;
-            favCardImg.classList.add('favourites__card--img');
-
-            favCardTitle.appendChild(favCardTitleContent);
-            favCardTitle.classList.add('favourites__card--title');
-
-            favList.appendChild(favCard);
-
+        } else if (favElements[i].image_url === '') {
+            favCardImg.src = `https://via.placeholder.com/210x295/bbe1fa/0f4c75/?text=${favElements[i].title}`;
         } else {
-            const favCard = document.createElement('li');
-            const favCardIcon = document.createElement('i');
-            const favCardImg = document.createElement('img');
-            const favCardTitle = document.createElement('h3');
-            const favCardTitleContent = document.createTextNode(favElements[i].title);
-
-            favCard.appendChild(favCardIcon);
-            favCard.appendChild(favCardImg);
-            favCard.appendChild(favCardTitle);
-            favCard.classList.add('favourites__card', 'js-fav');
-
-            favCardIcon.classList.add('fas', 'fa-times', 'favourites__card--icon', 'js-remove');
-
             favCardImg.src = favElements[i].image_url;
-            favCardImg.alt = favElements[i].title;
-            favCardImg.classList.add('favourites__card--img');
-
-            favCardTitle.appendChild(favCardTitleContent);
-            favCardTitle.classList.add('favourites__card--title');
-
-            favList.appendChild(favCard);
-
         }
+
         const removeBtn = document.querySelectorAll('.js-remove');
         for (const eachBtn of removeBtn) {
             eachBtn.addEventListener('click', removeFavourite);
