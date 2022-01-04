@@ -53,7 +53,6 @@ function renderFavList(favElements) {
     for (const eachBtn of removeBtn) {
         eachBtn.addEventListener('click', removeFavourite);
     }
-    // }
     localStorage.setItem("favs", JSON.stringify(favElements));
 }
 
