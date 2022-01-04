@@ -137,7 +137,7 @@ body {
   padding: 32px;
   display: flex;
   flex-direction: column; }
-  @media (min-width: 1280px) {
+  @media (min-width: 768px) {
     .main {
       flex-direction: row; } }
   .main__favourites {
@@ -157,6 +157,7 @@ body {
         width: 352px; } }
   .main__results {
     background-color: #0f4c75;
+    margin-bottom: 32px;
     padding: 16px;
     width: 75vw; }
     .main__results--title {
@@ -200,7 +201,7 @@ body {
   display: flex;
   justify-content: center;
   flex-wrap: wrap; }
-  @media (min-width: 1280px) {
+  @media (min-width: 768px) {
     .results {
       width: 100%;
       justify-content: space-between; } }
