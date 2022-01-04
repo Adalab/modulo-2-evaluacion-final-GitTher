@@ -46,3 +46,10 @@
     }
   }
 }
+
+.search__input.empty {
+  border: 1px solid red;
+  &::placeholder {
+    color: red;
+  }
+}

@@ -1,5 +1,6 @@
 'use strict';
 
+const animeInput = document.querySelector('.js-input');
 const submitBtn = document.querySelector('.js-submit');
 const resetBtn = document.querySelector('.js-reset');
 const favList = document.querySelector('.js-favourites');
@@ -9,10 +10,18 @@ let resultElements = [];
 let favElements = [];
 
 
+function checkInput() {
+    if (animeInput.value.length == 0) {
+        animeInput.classList.add('empty');
+    } else {
+        animeInput.classList.remove('empty');
+    }
+}
+
 function getAnime(event) {
     event.preventDefault()
-    const animeInput = document.querySelector('.js-input').value;
-    fetch(`https://api.jikan.moe/v3/search/anime?q=${animeInput}`)
+    checkInput();
+    fetch(`https://api.jikan.moe/v3/search/anime?q=${animeInput.value}`)
         .then(response => response.json())
         .then(animeData => {
             resultElements = animeData.results;
@@ -57,7 +66,8 @@ function renderResultList(resultElements) {
 
     }
 }
-submitBtn.addEventListener('click', getAnime); 
+submitBtn.addEventListener('click', getAnime);
+animeInput.addEventListener('keyup', checkInput);
 
 function addFavourite(event) {
     const animeInfo = event.currentTarget.querySelector('.results__card--img');

@@ -301,4 +301,13 @@ body {
       transform: translateY(-2px);
       box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5); }
 
+.search__input.empty {
+  border: 1px solid red; }
+  .search__input.empty::-moz-placeholder {
+    color: red; }
+  .search__input.empty:-ms-input-placeholder {
+    color: red; }
+  .search__input.empty::placeholder {
+    color: red; }
+
 /*# sourceMappingURL=main.css.map */
