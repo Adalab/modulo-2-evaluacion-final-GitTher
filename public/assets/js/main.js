@@ -27,6 +27,7 @@ function getAnime(event) {
             resultElements = animeData.results;
             renderResultList(resultElements);
         });
+
 }
 
 function renderResultList(resultElements) {
@@ -158,7 +159,10 @@ function resetFavs(event) {
 
 resetBtn.addEventListener('click', resetFavs);
 
-favElements = JSON.parse(localStorage.getItem("favs"));
-window.onload = renderFavList(favElements);
+
+if (favElements.length !== 0) {
+    favElements = JSON.parse(localStorage.getItem("favs"));
+    window.onload = renderFavList(favElements);
+};
 
 //# sourceMappingURL=main.js.map
