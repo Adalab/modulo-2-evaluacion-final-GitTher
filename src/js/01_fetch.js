@@ -3,18 +3,21 @@ function checkInput() {
         animeInput.classList.add('empty');
     } else {
         animeInput.classList.remove('empty');
+        return (true);
     }
 }
 
 function getAnime(event) {
     event.preventDefault()
     checkInput();
-    fetch(`https://api.jikan.moe/v3/search/anime?q=${animeInput.value}`)
-        .then(response => response.json())
-        .then(animeData => {
-            resultElements = animeData.results;
-            renderResultList(resultElements);
-        });
+    if (checkInput() === true) {
+        fetch(`https://api.jikan.moe/v3/search/anime?q=${animeInput.value}`)
+            .then(response => response.json())
+            .then(animeData => {
+                resultElements = animeData.results;
+                renderResultList(resultElements);
+            });
+    }
 
 }
 
