@@ -61,6 +61,19 @@ function renderResultList(resultElements) {
             resultCardImg.src = resultElements[i].image_url;
         }
 
+        if (resultElements[i].airing == true) {
+            const moreInfo = document.createElement('a');
+            const moreInfoText = document.createTextNode('Mas información');
+            moreInfo.appendChild(moreInfoText);
+            moreInfo.href = resultElements[i].url;
+            resultCardTitle.appendChild(moreInfo);
+        } else {
+            const notAiring = document.createElement('p');
+            const notAiringText = document.createTextNode('No se está emitiendo');
+            notAiring.appendChild(notAiringText);
+            resultCardTitle.appendChild(notAiring);
+        }
+
         const animeCard = document.querySelectorAll('.js-card');
         for (const eachCard of animeCard) {
             eachCard.addEventListener('click', addFavourite);
@@ -120,6 +133,10 @@ function renderFavList(favElements) {
             favCardImg.src = `https://via.placeholder.com/210x295/bbe1fa/0f4c75/?text=${favElements[i].title}`;
         } else {
             favCardImg.src = favElements[i].image_url;
+        }
+        favCard.addEventListener('click', renderTitleConsole);
+        function renderTitleConsole() {
+            console.log(favElements[i].title);
         }
     }
 

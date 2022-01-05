@@ -47,6 +47,10 @@ function renderFavList(favElements) {
         } else {
             favCardImg.src = favElements[i].image_url;
         }
+        favCard.addEventListener('click', renderTitleConsole);
+        function renderTitleConsole() {
+            console.log(favElements[i].title);
+        }
     }
 
     const removeBtn = document.querySelectorAll('.js-remove');

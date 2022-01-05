@@ -49,6 +49,19 @@ function renderResultList(resultElements) {
             resultCardImg.src = resultElements[i].image_url;
         }
 
+        if (resultElements[i].airing == true) {
+            const moreInfo = document.createElement('a');
+            const moreInfoText = document.createTextNode('Mas información');
+            moreInfo.appendChild(moreInfoText);
+            moreInfo.href = resultElements[i].url;
+            resultCardTitle.appendChild(moreInfo);
+        } else {
+            const notAiring = document.createElement('p');
+            const notAiringText = document.createTextNode('No se está emitiendo');
+            notAiring.appendChild(notAiringText);
+            resultCardTitle.appendChild(notAiring);
+        }
+
         const animeCard = document.querySelectorAll('.js-card');
         for (const eachCard of animeCard) {
             eachCard.addEventListener('click', addFavourite);
