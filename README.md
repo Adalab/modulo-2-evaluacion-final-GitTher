@@ -24,7 +24,7 @@
 
 ## About The Project
 
-[View the project](http://gitther.github.io/modulo-2-evaluacion-final-GitTher/)
+[View the project](https://gitther.github.io/anime-search-and-favs/)
 
 This project features an anime series search form thanks to the [Jikan API](https://jikan.docs.apiary.io/#). This page also allows to select your favourite animes and save them in a favourites list.
 
@@ -48,7 +48,7 @@ To start this project you need to follow this steps:
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/GitTher/modulo-2-evaluacion-final-GitTher.git
+   git clone https://github.com/GitTher/anime-search-and-favs.git
    ```
 2. Install NPM packages
    ```sh
@@ -74,4 +74,4 @@ To start this project you need to follow this steps:
 
 Esther Fernández - [GitTher](https://github.com/GitTher)
 
-Project Link: [hhttps://github.com/GitTher/modulo-2-evaluacion-final-GitTher](https://github.com/GitTher/modulo-2-evaluacion-final-GitTher)
+Project Link: [https://github.com/GitTher/anime-search-and-favs](https://github.com/GitTher/anime-search-and-favs)
